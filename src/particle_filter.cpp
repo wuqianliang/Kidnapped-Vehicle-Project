@@ -19,6 +19,8 @@
 
 using namespace std;
 
+static default_random_engine gen;
+
 void ParticleFilter::init(double x, double y, double theta, double std[]) {
 	// TODO: Set the number of particles. Initialize all particles to first position (based on estimates of 
 	//   x, y, theta and their uncertainties from GPS) and all weights to 1. 
@@ -86,6 +88,9 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 	//   observed measurement to this particular landmark.
 	// NOTE: this method will NOT be called by the grading code. But you will probably find it useful to 
 	//   implement this method and use it as a helper during the updateWeights phase.
+ 
+ 
+
  for (unsigned int i = 0; i < observations.size(); i++) {
     
     // grab current observation
@@ -96,23 +101,28 @@ void ParticleFilter::dataAssociation(std::vector<LandmarkObs> predicted, std::ve
 
     // init id of landmark from map placeholder to be associated with the observation
     int map_id = -1;
-    
+    double ass_x = 0.0;
+    double ass_y = 0.0;
     for (unsigned int j = 0; j < predicted.size(); j++) {
       // grab current prediction
       LandmarkObs p = predicted[j];
       
       // get distance between current/predicted landmarks
-      double cur_dist = dist(o.x, o.y, p.x, p.y);
+      double cur_dist = dist(o.x, o.y, predicted[j].x, predicted[j].y);
 
       // find the predicted landmark nearest the current observed landmark
       if (cur_dist < min_dist) {
         min_dist = cur_dist;
-        map_id = p.id;
+        map_id = predicted[j].id;
+        ass_x = predicted[j].x;
+        ass_y = predicted[j].y;
       }
     }
 
     // set the observation's id to the nearest predicted landmark's id
     observations[i].id = map_id;
+    observations[i].associated_x = ass_x;
+    observations[i].associated_y = ass_y;
   }
 }
 
@@ -181,12 +191,14 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
       int associated_prediction = transformed_os[j].id;
 
       // get the x,y coordinates of the prediction associated with the current observation
-      for (unsigned int k = 0; k < predictions.size(); k++) {
+      /*for (unsigned int k = 0; k < predictions.size(); k++) {
         if (predictions[k].id == associated_prediction) {
           pr_x = predictions[k].x;
           pr_y = predictions[k].y;
         }
-      }
+      }*/
+      pr_x = transformed_os[j].associated_x;
+      pr_y = transformed_os[j].associated_y;
 
       // calculate weight for this observation with multivariate Gaussian
       double s_x = std_landmark[0];
@@ -207,10 +219,13 @@ void ParticleFilter::resample() {
 
   vector<Particle> new_particles;
 
+  double max_weight = 0.0;
   // get all of the current weights
   vector<double> weights;
   for (int i = 0; i < num_particles; i++) {
     weights.push_back(particles[i].weight);
+    if(max_weight < particles[i].weight)
+        max_weight = particles[i].weight;
   }
 
   // generate random starting index for resampling wheel
@@ -218,7 +233,7 @@ void ParticleFilter::resample() {
   auto index = uniintdist(gen);
 
   // get max weight
-  double max_weight = *max_element(weights.begin(), weights.end());
+  //double max_weight = *max_element(weights.begin(), weights.end());
 
   // uniform random distribution [0.0, max_weight)
   uniform_real_distribution<double> unirealdist(0.0, max_weight);
