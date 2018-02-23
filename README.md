@@ -2,7 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ## Overview
-This project implemented an Unscented Kalman Filter for RADAR and LIDAR sensor data. The Udacity simulator generates noisy RADAR and LIDAR measurements of the position and velocity of an object. This project implemented the Extended Kalman Filter  to fusion those measurements to predict the position and velocity of the object. 
+A particle filter is implemented in this project. The initial location is given by the GPS-like data. At each time step, particel filter receive noisy observation data and control data and update all the particles' weights and choose heightest waeight particle's X, Y, Wheel then send back to simulator for visulization.
 
 ## Prerequisites
 
@@ -15,31 +15,18 @@ As described in [Udacity seed project](https://github.com/udacity/CarND-Extended
 
 ## Basic Build Instructions
 + Clone this repo and cd directory which include CMakeLists.txt
-+ cmake .
-+ make (This will create UnscentedKF executable) 
++ Sh ./clean.sh
++ Sh ./build.sh
++ Sh ./run.sh
++ Start simulator , choose kidnapped vehicle and click start
 
-## Running Unscented Kalman Filter
-After launch the simulator, when executed ./UnscentedKF, output will be:
->     Listening to port 4567
->     Connected!!!
 
 Following is an image of simulator:
 
-After emit dataset1,the green triangle is the predicted postion of object, and the final RMSE:
+After about 1000 timestep the image of simulator:
 
 ![Alt text](https://github.com/wuqianliang/CarND-UKF-Project/blob/master/images/dataset1-RMSE.png "Optional title")
 
-After switch dataset2, the final RMSE:
-
-![Alt text](https://github.com/wuqianliang/CarND-UKF-Project/blob/master/images/dataset2-RMSE.png "Optional title")
-
-## NIS checking:
-
-From the following imags,we can see the estimations of uncertainty of noise are Appropriately.
-
-![NIS laser](https://github.com/wuqianliang/CarND-UKF-Project/blob/master/images/nis-laser.png "Optional title")
-
-![NIS radar](https://github.com/wuqianliang/CarND-UKF-Project/blob/master/images/nis-radar.png "Optional title")
 
 # Rubric points
 ## Accuracy
