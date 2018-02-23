@@ -40,7 +40,7 @@ May be my laptop cpu is week, but my code was optimized already.
 ### Does your code use a particle filter to localize the robot?
 Yes, my code follows the flow in the following diagram：
 
-![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
+![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/flowchat.png "Optional title")
 
 
 ## Reference:
