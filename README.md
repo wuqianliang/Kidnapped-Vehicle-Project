@@ -43,6 +43,8 @@ Yes, my code follows the flow in the following diagram：
 ![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/flowchat.png "Optional title")
 
 
-## Reference:
+#### Reference:
 
 https://github.com/JunshengFu/kidnapped-vehicle
+
+https://github.com/jeremy-shannon/CarND-Kidnapped-Vehicle-Project
