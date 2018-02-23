@@ -248,7 +248,8 @@ void ParticleFilter::resample()
 	}
 
 	/* assign the resampled_particles to the previous particles */
-	particles = resampled_particles;
+	//particles = resampled_particles;
+	particles = std::move(resampled_particles);
 
 	/* clear the weight vector for the next round */
 	weights.clear();
