@@ -35,7 +35,7 @@ Yes, via the output below, we can see that the accuracy is satisfied.
 ![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
 
 ### Does your particle run within the specified time of 100 seconds?
-May be my laptop cpu is week, but my code was optimized already.
+Maybe my laptop cpu is week, but my code was optimized already.So would you please check the speed for me again,thanks.
 
 ### Does your code use a particle filter to localize the robot?
 Yes, my code follows the flow in the following diagram：
