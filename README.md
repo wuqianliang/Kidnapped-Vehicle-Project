@@ -2,7 +2,7 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ## Overview
-A particle filter is implemented in this project. The initial location is given by the GPS-like data. At each time step, particel filter receive noisy observation data and control data and update all the particles' weights and choose heightest waeight particle's X, Y, Wheel then send back to simulator for visulization.
+A particle filter is implemented in this project. The initial location is given by the GPS-like data. At each time step, particel filter receive noisy observation data and control data and update all the particles' weights and choose heightest waeight particle's X, Y, theta then send back to simulator for visulization.
 
 ## Prerequisites
 
