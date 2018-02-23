@@ -3,6 +3,8 @@
  *
  *  Created on: Dec 12, 2016
  *      Author: Tiffany Huang
+ *  Modified on: Feb 23,2018
+ *      Author: Qianliang Wu
  */
 
 #include <random>
@@ -174,8 +176,7 @@ void ParticleFilter::updateWeights( double sensor_range, double std_landmark[],
 			int	lm_id	= map_landmarks.landmark_list[j].id_i;
 
 			/*
-			 * only consider landmarks within sensor range of the particle (rather than using the "dist" method considering a circular
-			 * region around the particle, this considers a rectangular region but is computationally faster)
+			 * only consider landmarks within sensor range of the particle 
 			 */
 			if ( fabs( lm_x - p_x ) <= sensor_range && fabs( lm_y - p_y ) <= sensor_range )
 			{
@@ -193,7 +194,7 @@ void ParticleFilter::updateWeights( double sensor_range, double std_landmark[],
 		{
 			double	t_x	= cos_theta * observations[j].x - sin_theta * observations[j].y + p_x;
 			double	t_y	= sin_theta * observations[j].x + cos_theta * observations[j].y + p_y;
-			transformed_os.push_back( LandmarkObs { observations[j].id, t_x, t_y } );
+			transformed_os.push_back( LandmarkObs { observations[j].id, t_x, t_y, 0.0, 0.0 } );
 		}
 
 		/* perform dataAssociation for the predictions and transformed observations on current particle */
