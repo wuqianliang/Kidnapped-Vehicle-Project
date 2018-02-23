@@ -25,19 +25,21 @@ Following is an image of simulator:
 
 After about 1000 timestep the image of simulator:
 
-![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-RMSE.png "Optional title")
+![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-1000.png "Optional title")
 
 
 # Rubric points
 ### Does your particle filter localize the vehicle to within the desired accuracy?
-
+Yes, via the output below, we can see that the accuracy is satisfied.
+![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
 
 ### Does your particle run within the specified time of 100 seconds?
-
+May be my laptop cpu is week, but my code was optimized already.
 
 ### Does your code use a particle filter to localize the robot?
-src/ukf.cpp line 102 ~ 130.
+Yes, my code follows the flow in the following diagram：
+![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
 
 
 Reference:
-https://github.com/YoungGer/Udacity-SelfDrivingCar-NanoDegree/tree/master/CarND-Unscented-Kalman-Filter-Project
+https://github.com/JunshengFu/kidnapped-vehicle
