@@ -31,6 +31,7 @@ After about 1000 timestep the image of simulator:
 # Rubric points
 ### Does your particle filter localize the vehicle to within the desired accuracy?
 Yes, via the output below, we can see that the accuracy is satisfied.
+
 ![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
 
 ### Does your particle run within the specified time of 100 seconds?
@@ -38,8 +39,10 @@ May be my laptop cpu is week, but my code was optimized already.
 
 ### Does your code use a particle filter to localize the robot?
 Yes, my code follows the flow in the following diagram：
+
 ![Alt text](https://github.com/wuqianliang/Kidnapped-Vehicle-Project/blob/master/images/dataset1-accuracy.png "Optional title")
 
 
-Reference:
+## Reference:
+
 https://github.com/JunshengFu/kidnapped-vehicle
